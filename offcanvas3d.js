@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {
-  Dimensions,
   Text,
   View,
   StyleSheet,
   Animated,
   TouchableWithoutFeedback,
   ScrollView,
-  BackAndroid
+  BackHandler
 } from 'react-native'
 
 class OffCanvas3D extends Component {
@@ -47,11 +46,11 @@ class OffCanvas3D extends Component {
     this._animateStuffs()
 
     if(this.props.handleBackPress && this.props.active) {
-      BackAndroid.addEventListener('hardwareBackPress', this._hardwareBackHandler)
+      BackHandler.addEventListener('hardwareBackPress', this._hardwareBackHandler)
     }
 
     if(this.props.handleBackPress && !this.props.active) {
-      BackAndroid.removeEventListener('hardwareBackPress', this._hardwareBackHandler)
+      BackHandler.removeEventListener('hardwareBackPress', this._hardwareBackHandler)
     }
   }
 
